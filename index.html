@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>互联网医院</title>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+  <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=yes,email=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <style type="text/css">
+    body {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    #loading {
+      background-color: #64adfd;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      margin-top: 0px;
+      top: 0px;
+    }
+
+    #logo {
+      font-weight: bolder;
+      position: relative;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      font-size: 28px;
+      margin-top: 120px;
+    }
+
+    #loading-center {
+      bottom: 100px;
+      margin-top: 80px;
+      width: 100%;
+      height: 150px;
+      position: absolute;
+    }
+
+    #loading-center-absolute {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 200px;
+      width: 200px;
+      margin-top: -100px;
+      margin-left: -100px;
+    }
+
+    #object {
+      width: 80px;
+      height: 80px;
+      background-color: #FFF;
+      -webkit-animation: animate 1s infinite ease-in-out;
+      animation: animate 1s infinite ease-in-out;
+      margin-right: auto;
+      margin-left: auto;
+      margin-top: 60px;
+    }
+
+    @-webkit-keyframes animate {
+      0% {
+        -webkit-transform: perspective(160px);
+      }
+
+      50% {
+        -webkit-transform: perspective(160px) rotateY(-180deg);
+      }
+
+      100% {
+        -webkit-transform: perspective(160px) rotateY(-180deg) rotateX(-180deg);
+      }
+    }
+
+    @keyframes animate {
+      0% {
+        transform: perspective(160px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(160px) rotateX(0deg) rotateY(0deg);
+      }
+
+      50% {
+        transform: perspective(160px) rotateX(-180deg) rotateY(0deg);
+        -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(0deg);
+      }
+
+      100% {
+        transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+        -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+      }
+    }
+
+    @keyframes narrow {
+      from {
+        transform: scale(1, 1);
+      }
+
+      to {
+        transform: scale(1, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <!-- <div id="loading">
+    <div id="logo">东莞怡心园医院</div>
+    <div id="loading-center">
+      <div id="loading-center-absolute">
+        <div id="object"></div>
+      </div>
+    </div>
+  </div> -->
+</body>
+
+</html>

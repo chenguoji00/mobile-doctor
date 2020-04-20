@@ -1,0 +1,12 @@
+// 用户
+export const UPDATE_USER_INFO = 'UPDATE_USER_INFO' // 更新用户信息
+export const UPDATE_API_TOKEN = 'UPDATE_API_TOKEN' // 更新API_TOKEN
+export const UPDATE_UNREAD_MSG_NUM = 'UPDATE_UNREAD_MSG_NUM' // 更新未读消息数
+
+export const UPDATE_NETLOADING = 'UPDATE_NETLOADING' // 更新加载动画
+
+//TIM
+export const UPDATE_TIM_NETWORK_STATUS = 'UPDATE_TIM_NETWORK_STATUS' // 更新网络状态
+export const UPDATE_TIM_CONCACT_LIST = 'UPDATE_TIM_CONCACT_LIST' // 更新联系人列表
+export const UPDATE_TIM_CHAT_WITH = 'UPDATE_TIM_CHAT_WITH' // 更新当前聊天对象
+

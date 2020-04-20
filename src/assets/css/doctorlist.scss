@@ -1,0 +1,69 @@
+
+//医师列表卡片
+.dt-it {
+    background-color: #fff;
+    position: relative;
+    padding: 30px;
+    width: 100%;
+    height: 250px;
+    min-height: 250px;
+    display: flex;
+    z-index: 0;
+    img {
+      margin-top: 20px;
+      min-width: 100px;
+      min-height: 100px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+    }
+    .ct {
+      margin-left: 20px;
+      .info {
+        color: $textColor;
+        height: 50px;
+        line-height: 50px;
+        font-size: 0.29rem;
+        .dtname {
+          font-size: 0.31rem;
+        }
+      }
+      .dept {
+        font-size: 0.28rem;
+        height: 50px;
+        line-height: 50px;
+        color: $grayTextColor;
+      }
+      .specialty {
+        font-size: 0.28rem;
+        margin-top: 0.213333rem;
+        line-height: 35px;
+        color: $textColor;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        display: -webkit-box !important;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box !important;
+        -webkit-box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+    }
+  }
+  
+  .dt-it::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    left: 5%;
+    bottom: 0px;
+    border-bottom: 0.002rem solid #eee;
+  }
+  
+  
