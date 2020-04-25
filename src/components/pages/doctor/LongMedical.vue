@@ -1,6 +1,6 @@
 <!-- 长期医嘱 -->
-<template>
-  <div class='temporaMedical'>
+<!--<template>
+   <div class='temporaMedical'>
     <div class="tempora-top">
       <div style="color:rgb(59,150,251);"><span style="background-color:rgb(59,150,251);"
               class="top-item"></span>暂存</div>
@@ -43,9 +43,53 @@
         </div>
       </div>
     </div>
+  </div> 
+</template>-->
+
+<template>
+  <div class='temporaMedical'>
+    <div class="tempora-top">
+      <div style="color:rgb(59,150,251);"><span style="background-color:rgb(59,150,251);"
+              class="top-item"></span>暂存</div>
+      <div style="color:rgb(4,217,178);"><span style="background-color:rgb(4,217,178);"
+              class="top-item"></span>已审核</div>
+      <div style="color:rgb(244,175,85);"><span style="background-color:rgb(244,175,85);"
+              class="top-item"></span>护士审核</div>
+      <div style="color:rgb(194,128,255);"><span style="background-color:rgb(194,128,255);"
+              class="top-item"></span>已执行</div>
+      <div style="color:rgb(217,0,27);"><span style="background-color:rgb(217,0,27);"
+              class="top-item"></span>停止</div>
+    </div>
+    <div class="tempora-item">
+      <div :class="['tempora-drug',stateShow[item.adviceLevel]]"
+           v-for="(item,index) in temporaMedocalData"
+           :key="index" >
+        <div style="font-weight:bolder;">{{index+1}}</div>
+        <div class="drug-table"
+             v-for="(subItem,subIndex) in item.medicine"
+             :key="subIndex">
+          <div style="width:50%;line-height:.25rem;">{{subItem.medicineName}}</div>
+          <div style="width:15%;">{{subItem.medicineAmount}}</div>
+          <div style="width:20%;">{{subItem.medicinePrice}}元</div>
+          <div style="width:35%;">{{subItem.medicineMark}}</div>
+        </div>
+        <div class="drug-usage">
+          <div>{{item.advicePo}}</div>
+          <div>{{item.adviceBid}}</div>
+          <div>{{item.adviceDay}}</div>
+          <div>{{item.adviceSkin}}</div>
+          <!-- <div v-if="item.zhushi.anxious" style="color:red;background-color:#fff;border-radius:100%;line-height:.5rem;height:.5rem;width:.5rem;text-align:center;">{{item.zhushi.anxious}}</div> -->
+          <div class="drug-usage-last">
+            <div style="font-size:.2rem;">开始：{{item.adviceStartTime}}</div>
+            <div style="font-size:.2rem;">开始：{{item.adviceEndTime}}</div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
 import { getMobileDoctor } from "@/service/doctor.js";
 export default {
@@ -120,7 +164,8 @@ export default {
         //     endTime: "2020-03-16 16:43"
         //   }
         // }
-      ]
+      ],
+      stateShow:['','zc','ysh','hssh','yzx','tz'],
     };
   },
   computed: {},
@@ -131,8 +176,12 @@ export default {
   mounted() {},
   methods: {
     getMobileDoctor(){
-      getMobileDoctor({ uri: "/api/v1/his/getHisAdviceList" }).then(res => {
+      let param = { uri: "/api/v1/his/getHisAdviceList",patId:this.$store.getters.patId,adviceType:1 }
+      getMobileDoctor(param).then(res => {
         this.temporaMedocalData = res.data;
+        for(let i=0;i<this.temporaMedocalData.length;i++){
+          this.temporaMedocalData[i].adviceLevel = Number(this.temporaMedocalData[i].adviceLevel)
+        }
         console.log(this.temporaMedocalData, "this.patientData");
       });
     }
@@ -182,18 +231,14 @@ export default {
       .drug-usage {
         width: 95%;
         display: flex;
+        margin: 0.15rem auto;
         justify-content: space-around;
         align-items: center;
         line-height: 0.5rem;
-        .drug-time {
+        .drug-usage-last{
           display: flex;
           flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-          div {
-            font-size: 0.2rem;
-          }
-        }
+        }  
       }
     }
   }

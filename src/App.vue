@@ -37,7 +37,14 @@ export default {
     
   },
   mounted() {
-    
+    console.log(88888,"2123113");
+    let patId = this.getQueryVariable("patId");
+    console.log(patId,"tasd");
+    if(patId){
+      console.log(patId);
+      // this.$store.commot("setPatId",patId)
+    this.$store.commit("setPatId",patId);
+  }
   },
   updated() {
     

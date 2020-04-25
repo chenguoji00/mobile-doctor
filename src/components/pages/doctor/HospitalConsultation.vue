@@ -39,7 +39,7 @@ export default {
   mounted() {},
   methods: {
     getMobileDoctor(){
-      getMobileDoctor({ uri: "/api/v1/his/getPatientAndOrderHistory" }).then(res => {
+      getMobileDoctor({ uri: "/api/v1/his/getPatientAndOrderHistory",patId:this.$store.getters.patId }).then(res => {
         this.hospitalConsult = res.data;
         console.log(this.hospitalConsult, "this.patientData");
       });

@@ -39,7 +39,7 @@ export default {
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
-    getMobileDoctor({ uri: "/restapi/v1/patient/diagentry" }).then(res => {
+    getMobileDoctor({ uri: "/api/v1/his/getHisDiagList",patId:this.$store.getters.patId }).then(res => {
       console.log(res, "this is res");
       this.List = res.data;
     });

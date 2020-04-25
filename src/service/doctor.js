@@ -1,5 +1,5 @@
 import { requestGet, requestPost } from './index.js'
-
+import axios from './index.js'
 
 
 //获取收藏的医生列表
@@ -80,5 +80,20 @@ export function getEvaluate (registerId) {
 
 //获取医生排班出诊信息
 export function getMobileDoctor (params) {
-  return requestGet(`/VAnpd8K632f23a69c2cab2e64d872906dddfe96a88e8810`, params).then(res => res.data)
+  // return requestGet(`/VAnpd8K632f23a69c2cab2e64d872906dddfe96a88e8810${params.uri}`, params).then(res => res.data)
+  return requestGet(params.uri, params).then(res => res.data)
 }
+
+// //获取随机码
+// export function getMobileDoctor (url,params) {
+//   console.log(params)
+//   return axios({
+//     url: `/VAnpd8K632f23a69c2cab2e64d872906dddfe96a88e8810?uri=${url.uri}`,
+//     method: 'get',
+//     params: params
+//   }).then(res =>res.data)
+//   return requestPost(`/platform-auth/auth/getTokenByPhonePasswdCaptcha`,params).then(res => res.data)
+//   return axios.get(url, {
+//     params: params
+//   }).then()
+// }

@@ -11,7 +11,8 @@ Vue.use(Vuex);
      timNetWorkStatus:'',
      contacts:[],
      chatWith:{},
-     netloading:false
+     netloading:false,
+     patId:'',
    };
 
 
@@ -22,6 +23,9 @@ const getters = {   //实时监听state值的变化(最新状态)
     api_token(state){
         return state.api_token;
     },
+    patId(state){
+        return state.patId
+    }
 };
 
 
@@ -30,6 +34,9 @@ const mutations = {
     // show(state) {   //自定义改变state初始值的方法，这里面的参数除了state之外还可以再传额外的参数(变量或对象);
     //     state.showFooter = true;
     // },
+    setPatId(state,data){
+        state.patId = data
+    },
     //更新正在加载动画状态
     [types.UPDATE_NETLOADING](state,data){
         state.netloading = data

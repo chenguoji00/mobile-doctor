@@ -106,9 +106,10 @@ export default {
   mounted() {},
   methods: {
     getMobileDoctor(){
-      getMobileDoctor({ uri: "/api/v1/his/getHisPatById" }).then(res => {
-        this.patientData = res.data[0];
-        console.log(this.patientData, "this.patientData");
+      getMobileDoctor({ uri: "/api/v1/his/getHisPatById",patId:this.$store.getters.patId }).then(res => {
+        console.log(res, "this.patientData");
+        this.patientData = res.data;
+        
       });
     }
   }

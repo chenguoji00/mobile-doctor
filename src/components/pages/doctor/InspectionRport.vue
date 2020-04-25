@@ -23,14 +23,17 @@ export default {
   components: {},
   data() {
     return {
-      examineReportData: []
+      examineReportData: [],
+      pageIndex:1,
+      pageSize:10,
     };
   },
   computed: {},
   watch: {},
   created() {},
   mounted() {
-    getMobileDoctor({ uri: "/api/v1/his/getHisInspectionList" }).then(res => {
+    let param = { uri: "/api/v1/his/getHisInspectionList",patId:this.$store.getters.patId,pageIndex:this.pageIndex, pageSize:this.pageSize };
+    getMobileDoctor(param).then(res => {
       this.examineReportData = res.data;
       console.log(this.examineReportData,"this.examineReportData");
     });
@@ -40,7 +43,7 @@ export default {
       console.log(item)
       if (item.inspectionStatet == 2) {
         this.goToPage("diagnosereport", {
-          key: item.patId
+          inspectionId: item.inspectionId
         });
       }
     }

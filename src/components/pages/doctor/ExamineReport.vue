@@ -26,7 +26,9 @@ export default {
   components: {},
   data() {
     return {
-      inspecReportData: []
+      inspecReportData: [],
+      pageSize:10,
+      pageIndex:1,
     };
   },
   computed: {},
@@ -37,7 +39,8 @@ export default {
   mounted() {},
   methods: {
     getMobileDoctor() {
-      getMobileDoctor({ uri: "/api/v1/his/getHisCheckList" }).then(res => {
+      let param = { uri: "/api/v1/his/getHisCheckList",patId:this.$store.getters.patId,pageIndex:this.pageIndex, pageSize:this.pageSize };
+      getMobileDoctor(param).then(res => {
         this.inspecReportData = res.data;
         console.log(this.inspecReportData, "this.inspecReportData");
       });

@@ -24,7 +24,9 @@ export default {
             // {"medicalRecord":'住院病案首页',"status":'未签名',"inspectTime":'2020.3.12 14:21:30'},
             // {"medicalRecord":'入院记录',"status":'已完成',"inspectTime":'2020.3.12 14:44:30'},
             // {"medicalRecord":'日常病程',"status":'已完成',"inspectTime":'2020.3.12 14:12:30'},
-        ]
+        ],
+        pageIndex:1,
+        pageSize:10,
     };
   },
   computed: {},
@@ -35,7 +37,8 @@ export default {
   mounted() {},
   methods: {
     getMobileDoctor() {
-      getMobileDoctor({ uri: "/api/v1/his/getHisRecordList" }).then(res => {
+      let param = { uri: "/api/v1/his/getHisRecordList",patId:this.$store.getters.patId,pageIndex:this.pageIndex, pageSize:this.pageSize };
+      getMobileDoctor(param).then(res => {
         this.inspecReportData = res.data;
         console.log(this.inspecReportData, "this.inspecReportData");
       });
