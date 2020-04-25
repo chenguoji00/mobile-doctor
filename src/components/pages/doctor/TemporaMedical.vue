@@ -17,7 +17,7 @@
       <div :class="['tempora-drug',stateShow[item.adviceLevel]]"
            v-for="(item,index) in temporaMedocalData"
            :key="index" >
-        <div style="font-weight:bolder;">{{index+1}}</div>
+        <div style="font-weight:bolder;font-size:.1rem;">{{index+1}}</div>
         <div class="drug-table"
              v-for="(subItem,subIndex) in item.medicine"
              :key="subIndex">

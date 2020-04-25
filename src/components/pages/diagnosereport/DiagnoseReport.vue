@@ -95,6 +95,7 @@ export default {
     border-top: 1px solid #f0f0f0;
     line-height: .7rem;
     border-bottom: 1px solid #f0f0f0;
+    font-size: .1rem;
     div{
       width:33%;
       text-align: center;
@@ -107,6 +108,7 @@ export default {
     border-top: 1px solid #f0f0f0;
     line-height: .7rem;
     border-bottom: 1px solid #f0f0f0;
+    font-size: .1rem;
     div{
       width:33%;
       text-align: center;

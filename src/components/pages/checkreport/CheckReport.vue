@@ -63,7 +63,7 @@
           <div>报告日期：{{reportObj.checkTime}}</div>
         </div>
       </div>
-      <div style="color:#ccc;text-align:center;">*此报告仅供本院临床医生参考，签字生效*</div>
+      <div style="color:#ccc;text-align:center;font-size: .1rem;">*此报告仅供本院临床医生参考，签字生效*</div>
     </template>
     
   </ZKPage>
@@ -95,10 +95,12 @@ export default {
 .top-content {
   width: 100%;
   line-height: 1rem;
+  font-size: .1rem;
   .top-info {
     display: flex;
     width: 92%;
     margin: 0 auto;
+    font-size: .1rem;
     justify-content: flex-start;
     div {
       flex: 1;
@@ -112,6 +114,7 @@ export default {
   display: flex;
   position: relative;
   bottom: .1rem;
+  font-size: .1rem;
   left: 0;
   width:100%;
   height:1rem;

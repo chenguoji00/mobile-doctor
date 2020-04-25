@@ -50,9 +50,11 @@ export default {
 <style lang="scss" scoped>
 .hospital-consulation {
   width: 100%;
+  font-size: .1rem;
   .consulat-item {
     width: 100%;
     height: 1.7rem;
+    font-size: .1rem;
     display: flex;
     margin:.1rem 0;
     box-shadow: 1px 1px 10px #888888;

@@ -129,6 +129,7 @@ export default {
       padding-left: 0.3rem;
       color: $themeColor;
       border-bottom: 1px solid #fff;
+      font-size: .2rem;
     }
     .base-info-content {
       width: 96%;

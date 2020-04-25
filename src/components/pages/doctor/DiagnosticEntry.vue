@@ -75,6 +75,7 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-size: .2rem;
     .dignostic-top {
       width: 100%;
       height: 0.5rem;
