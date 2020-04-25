@@ -165,6 +165,7 @@ export default {
       line-height: 0.8rem;
       padding-left: 0.3rem;
       color: $themeColor;
+      font-size: .2rem;
       border-bottom: 1px solid #fff;
     }
     .hospitalized-info-content {
