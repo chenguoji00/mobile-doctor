@@ -2,12 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import store from 'store'
 
-
-// import Home from '@/components/pages/home'
-// import Search from '@/components/pages/home/search'
-
-
 const Home = () => import('@/components/pages/home')
+const DiagnoseReport = () => import('@/components/pages/diagnosereport/DiagnoseReport')
+const CheckReport = () => import('@/components/pages/checkreport/CheckReport')
+
 
 Vue.use(Router)
 
@@ -22,6 +20,22 @@ let router = new Router({
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/diagnosereport',
+    name: 'diagnosereport',
+    component: DiagnoseReport,
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/checkreport',
+    name: 'checkreport',
+    component: CheckReport,
     meta: {
       keepAlive: true
     }

@@ -38,7 +38,7 @@ export default {
       default: true
     }
   },
-
+  created(){},
   // components: {
   //   BScroll,
   // },
@@ -73,7 +73,6 @@ export default {
     background-color: rgb(0,121,254);
     margin: 0px;
     width: 100%;
-    height: 1rem;
     border: 0;
   }
   .page-container {
