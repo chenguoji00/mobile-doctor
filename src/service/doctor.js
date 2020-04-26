@@ -80,8 +80,8 @@ export function getEvaluate (registerId) {
 
 //获取医生排班出诊信息
 export function getMobileDoctor (params) {
-  // return requestGet(`/VAnpd8K632f23a69c2cab2e64d872906dddfe96a88e8810${params.uri}`, params).then(res => res.data)
-  return requestGet(params.uri, params).then(res => res.data)
+  return requestGet(`/VAnpd8K632f23a69c2cab2e64d872906dddfe96a88e8810?uri=${params.uri}`, params).then(res => res.data)
+  // return requestGet(params.uri, params).then(res => res.data)
 }
 
 // //获取随机码

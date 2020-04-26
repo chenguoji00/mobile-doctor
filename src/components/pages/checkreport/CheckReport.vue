@@ -4,7 +4,7 @@
           :container="true"
           >
     <template slot="header">
-      <NavBar title="4床 王三妹"
+      <NavBar title=""
               bgColor="rgb(0,121,254)"
               @onClickLeft="goToPage()"
               left-arrow />
@@ -100,7 +100,7 @@ export default {
     display: flex;
     width: 92%;
     margin: 0 auto;
-    font-size: .1rem;
+    font-size: .2rem;
     justify-content: flex-start;
     div {
       flex: 1;
@@ -114,7 +114,7 @@ export default {
   display: flex;
   position: relative;
   bottom: .1rem;
-  font-size: .1rem;
+  font-size: .2rem;
   left: 0;
   width:100%;
   height:1rem;

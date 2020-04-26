@@ -12,7 +12,7 @@
     <div class="p-title-box-3"
          v-for="(item,index) in inspecReportData"
          :key="index">
-      <div style="width:35%;">{{item.checkName}}</div>
+      <div style="width:40%;">{{item.checkName}}</div>
       <div :class="{'lookreport':item.checkState == 2}"
           style="width:25%;" @click="statusToGo(item)">{{item.checkState == 1?'报告未出':'查看报告'}}</div>
       <div style="font-size:0.2rem;width:35%;">{{item.checkTime}}</div>
@@ -83,14 +83,13 @@ export default {
   width: 100%;
   border-bottom: 1px solid #fff;
   background-color: #f0f0f0;
-  height: 0.7rem;
   text-align: center;
   display: flex;
   display: -webkit-flex;
   flex-direction: row;
   flex-wrap: nowrap;
   line-height: 0.7rem;
-  font-size:.1rem;
+  font-size:.25rem;
   color: black;
   .lookreport{
     color:#4B7902;

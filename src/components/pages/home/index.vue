@@ -52,6 +52,16 @@
           <LongMedical></LongMedical>
           <!-- 长期医嘱  end -->
         </div>
+        <div v-if="current == 9">
+          <!-- 护理记录  start -->
+          <temperatureSheet></temperatureSheet>
+          <!-- 护理记录  end -->
+        </div>
+        <div v-if="current == 10">
+          <!-- 长期医嘱  start -->
+          <NursingRecord></NursingRecord>
+          <!-- 长期医嘱  end -->
+        </div>
         
       </div>
     </template>
@@ -67,6 +77,8 @@ import MedicalRecord from '@/components/pages/doctor/MedicalRecord'
 import HospitalConsultation from '@/components/pages/doctor/HospitalConsultation'
 import TemporaMedical from '@/components/pages/doctor/TemporaMedical'
 import LongMedical from '@/components/pages/doctor/LongMedical'
+import NursingRecord from '@/components/pages/doctor/NursingRecord'
+import temperatureSheet from '@/components/pages/doctor/temperatureSheet'
 import NavBar from "@/components/common/nav-bar";
 import ZKPage from "@/components/common/zk-page";
 
@@ -84,7 +96,9 @@ export default {
         { name: 5, label: "病历" },
         { name: 6, label: "院内会诊" },
         { name: 7, label: "临时医嘱" },
-        { name: 8, label: "长期医嘱" }
+        { name: 8, label: "长期医嘱" },
+        { name: 9, label: "护理记录" },
+        { name: 10, label: "体温单" }
       ]
     };
   },
@@ -104,7 +118,9 @@ export default {
     MedicalRecord,
     HospitalConsultation,
     TemporaMedical,
-    LongMedical
+    LongMedical,
+    NursingRecord,
+    temperatureSheet
   },
   mounted() {
     

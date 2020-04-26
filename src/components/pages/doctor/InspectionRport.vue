@@ -84,7 +84,7 @@ export default {
   flex-direction: row;
   flex-wrap: nowrap;
   line-height: 0.7rem;
-  font-size: 0.1rem;
+  font-size: 0.25rem;
   color: black;
   .lookreport{
     color:#4B7902;

@@ -13,7 +13,7 @@ module.exports = {
     proxyTable: {
       '/hyjapi': {
         // target: 'https://yxhyjapp.phd91.com:7000',  // 接口域名
-        target: 'http://hd.phd91.com/rcpapp',  // 接口域名
+        target: 'https://result.eolinker.com',  // 接口域名
         changeOrigin: true,  //是否跨域
         secure: false,
         pathRewrite: {
@@ -23,7 +23,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '192.168.3.7', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 80, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

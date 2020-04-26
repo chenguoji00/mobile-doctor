@@ -6,7 +6,7 @@
       <div class="dignosticContent">
         <div class="dignostic-top">
           <!-- <div>{{item.diagResult}}</div> -->
-          <div>{{item.diagMeasure}}</div>
+          <div style="width:50%;">{{item.diagMethod}}</div>
           <div>操作人：{{item.diagUserName}}</div>
         </div>
         <div class="dignostic-center">
@@ -75,7 +75,7 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-size: .2rem;
+    font-size: .27rem;
     .dignostic-top {
       width: 100%;
       height: 0.5rem;
@@ -106,7 +106,7 @@ export default {
           height: 0.6rem;
           // background-color:rgb(0,191,191);
           text-align: center;
-          padding-top: 0.2rem;
+          line-height:.6rem;
           border-radius: 10px;
         }
         .mainclass-right {
@@ -114,7 +114,7 @@ export default {
           height: 0.6rem;
           // background-color:rgb(0,191,191);
           text-align: center;
-          padding-top: 0.2rem;
+          line-height:.6rem;
           border-radius: 10px;
         }
         .zhu {

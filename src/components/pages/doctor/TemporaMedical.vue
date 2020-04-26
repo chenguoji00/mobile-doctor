@@ -34,7 +34,7 @@
           <!-- <div v-if="item.zhushi.anxious" style="color:red;background-color:#fff;border-radius:100%;line-height:.5rem;height:.5rem;width:.5rem;text-align:center;">{{item.zhushi.anxious}}</div> -->
           <div class="drug-usage-last">
             <div style="font-size:.2rem;">开始：{{item.adviceStartTime}}</div>
-            <div style="font-size:.2rem;">开始：{{item.adviceEndTime}}</div>
+            <div style="font-size:.2rem;">结束：{{item.adviceEndTime}}</div>
 
           </div>
           

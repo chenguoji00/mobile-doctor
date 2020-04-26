@@ -129,7 +129,7 @@ export default {
       padding-left: 0.3rem;
       color: $themeColor;
       border-bottom: 1px solid #fff;
-      font-size: .2rem;
+      font-size: .27rem;
     }
     .base-info-content {
       width: 96%;
@@ -165,7 +165,7 @@ export default {
       line-height: 0.8rem;
       padding-left: 0.3rem;
       color: $themeColor;
-      font-size: .2rem;
+      font-size: .27rem;
       border-bottom: 1px solid #fff;
     }
     .hospitalized-info-content {
