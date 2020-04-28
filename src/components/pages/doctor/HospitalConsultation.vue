@@ -2,7 +2,7 @@
 <template>
   <div class='hospital-consulation'>
     <!-- Item列表 -->
-    <div class="consulat-item" v-for="(item,index) in hospitalConsult" :key="index">
+    <!-- <div class="consulat-item" v-for="(item,index) in hospitalConsult" :key="index">
       <div class="consulat-item-left">
         <div class="consulat-item-left-item">
           已评价
@@ -13,7 +13,27 @@
           <div class="item-center">会诊标题：{{item.patName}}、{{item.patSex|exChangeSex}}、{{item.age}}岁</div>
           <div class="item-center">会诊时间：{{item.patClinicDateText}}</div>
       </div>
+    </div> -->
+
+    <div v-for="(item,index) in hospitalConsult" :key="index">
+      <div style="width:100%;height:auto;display:flex;flex-direction:column;">
+        <div v-for="(subItem,index1) in item.expertAdvice" :key="index1">
+      <div  style="display:flex;justify-content: space-around;align-items: center;height:40px;line-height:40px;border-bottom:1px solid #ccc;">
+        <div>{{item.patClinicDateText}}</div>
+        <div>{{subItem.expertDeptName}} {{subItem.expertName}}</div>
+      </div>
+      <div style="margin:20px 10px;">
+        会诊结论：{{subItem.adviceResult}}
+      </div>
+       <div style="margin:20px 10px;">
+        会诊建议：{{subItem.adviceTxt}}
+      </div>
+      </div>
     </div>
+    </div>
+
+
+
   </div>
 </template>
 
@@ -50,7 +70,7 @@ export default {
 <style lang="scss" scoped>
 .hospital-consulation {
   width: 100%;
-  font-size: .1rem;
+  font-size: .2rem;
   .consulat-item {
     width: 100%;
     height: 1.7rem;
@@ -77,6 +97,7 @@ export default {
         border-radius: 100%;
         font-weight: 700;
         color: #fff;
+        
       }
     }
     .consulat-item-right {
