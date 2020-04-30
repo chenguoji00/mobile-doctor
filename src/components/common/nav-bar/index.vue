@@ -1,13 +1,15 @@
 <template>
   <div class="nut-navbar" v-bind:style="{ backgroundColor: bgColor,color:color}">
     <div class="nav-left" @click="cLeft">
-      <span :class="leftShow" v-show="leftShow !=''"></span>
+<!--      <span  v-show="leftShow !=''">-->
+        <img src="../../../assets/back.svg" style="width: 30px;height:30px;" />
+<!--      </span>-->
       <slot name="left"></slot>
     </div>
     <div class="nav-center">
-      <h3 class="nav-title" v-show="title !=''">
+      <div class="nav-title" v-show="title !=''">
         <span v-show="title">{{title}}</span>
-      </h3>
+      </div>
       <slot name="center"></slot>
     </div>
     <div class="nav-right" @click="cRight">
@@ -55,42 +57,43 @@ export default {
 </script>
 <style lang='scss' scoped>
 .nut-navbar {
-  height: 100px;
+  height: 1.5rem;
   z-index: 99999;
   position: relative;
   border-bottom:  solid #f7f7f7 1px;
 
   .nav-left {
     position: absolute;
-    top: 0px;
+    top: .25rem;
     left: 30px;
-    height: 100px;
-    line-height: 100px;
+    height: 1.5rem;
+    line-height: 1.5rem;
     span {
-      font-size: 60px;
+      font-size: .5rem;
     }
   }
 
   .nav-center {
     width: auto;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     text-align: center;
-    line-height: 100px;
-    span {
-      font-size: 32px;
+    line-height: 1.5rem;
+    .nav-title{
+      span {
+        font-size: .5rem;
+      }
     }
+
   }
 
   .nav-right {
     position: absolute;
     top: 0px;
     right: 30px;
-    height: 100px;
-    line-height: 100px;
+    height: 1.5rem;
+    line-height: 1.5rem;
     span {
-      font-size: 60px;
+      font-size: 1.5rem;
     }
   }
 }

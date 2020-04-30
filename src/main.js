@@ -1,89 +1,32 @@
-require('@/utils/flexible.js')
+// 兼容 IE
+// https://github.com/zloirock/core-js/blob/master/docs/2019-03-19-core-js-3-babel-and-a-look-into-the-future.md#babelpolyfill
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
+
 import Vue from 'vue'
-
-import common_mixins from '@/utils/common_mixins'
-Vue.mixin(common_mixins)
-import VueBus from 'vue-bus'
-Vue.use(VueBus);
-
-
-
-// import  FastClick  from  'fastclick'
-// FastClick.attach(document.body);
-
-
-import 'mand-mobile/lib/mand-mobile.css'
-import mandMobile from 'mand-mobile'
-Vue.use(mandMobile)
-
-import Cube from 'cube-ui'
-Vue.use(Cube)
-
-
-import "@/assets/css/theme.scss";
-import "@/assets/iconfont/iconfont.css";
-
-import 'normalize.css'
-import "animate.css";
-
-
-
-
-
+import App from './App.vue'
 import router from './router'
-import store from 'store'
-import App from './App'
+import store from './store'
 
-import VueSticky from "vue-sticky";
+// 引入全局样式
+import '@/assets/css/index.scss'
+// 设置 js中可以访问 $cdn
+import {$cdn} from '@/config'
+Vue.prototype.$cdn = $cdn
 
+// 全局引入按需引入UI库 vant
+import '@/plugins/vant'
 
-Vue.directive('sticky',VueSticky);
+// 移动端适配
+import 'lib-flexible/flexible.js'
 
-//全局注册自定义指令，用于判断当前图片是否能够加载成功，可以加载成功则赋值为img的src属性，否则使用默认图片
-Vue.directive('real-img', async function (el, binding) {//指令名称为：real-img
-  let imgURL = binding.value;//获取图片地址
-  if (imgURL) {
-      let exist = await imageIsExist(imgURL);
-      if (exist) {
-          el.setAttribute('src', imgURL);
-      } 
-  }
-})
-
-/**
-* 检测图片是否存在
-* @param url
-*/
-let imageIsExist = function(url) {
-
-  return new Promise((resolve) => {
-      var img = new Image();
-      img.onload = function () {
-          if (this.complete == true){
-              resolve(true);
-              img = null;
-          }
-      }
-      img.onerror = function () {
-          resolve(false);
-          img = null;
-      }
-      img.src = url;
-  })
-}
-
-
-
-import Navigation from 'vue-navigation'
-Vue.use(Navigation, {router, store})
-
-
+// filters
+import './filters'
 Vue.config.productionTip = false
+
 new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
-  template: '<App/>'
+  render: h => h(App)
 })
-

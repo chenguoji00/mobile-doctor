@@ -1,84 +1,44 @@
 <template>
-  <div id="app"  class="animated fadeIn">
-    <navigation>
-      <router-view></router-view>
-    </navigation>
+  <div class="app" id="app">
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
+    <!-- tabbar -->
+<!--    <TabBar></TabBar>-->
   </div>
 </template>
-
 <script>
-import { NoticeBar, Dialog, Toast } from "mand-mobile";
-import { mapState, mapGetters, mapActions } from "vuex";
-import { updateReadNum } from "@/service/chat.js";
-import * as types from "store/mutation-types";
-import * as constants from "src/AppConstants";
-import { userInfoByopenId ,msgDoctor} from "@/service/member.js";
-import { getTokenByOpenId } from "@/service/login.js";
-import { getNoticeBar ,upVisits} from "@/service/home.js";
-import fixedInput from "@/utils/fixedInput";
+import TabBar from '@/components/TabBar'
 
 export default {
-  name: "App",
-  mixins: [fixedInput],
-  data() {
-    return {
-      isok: false,
-      transitionName: "",
-      noticeBar:null
-    };
-  },
-  computed: {
-    ...mapState({
-      chatWith: state => state.chatWith,
-      contacts: state => state.contacts
-    })
-  },
-  created() {
-    
-  },
-  mounted() {
-    console.log(88888,"2123113");
-    let patId = this.getQueryVariable("patId");
-    console.log(patId,"tasd");
-    if(patId){
-      console.log(patId);
-      // this.$store.commot("setPatId",patId)
-    this.$store.commit("setPatId",patId);
-  }
-  },
-  updated() {
-    
-  },
-
-
-  destroyed() {
-    
+  name: 'App',
+  components: {
+    TabBar
   },
   methods: {
-    
+    getQueryVariable(variable) {
+      console.log(this.$store,"this.$store");
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) {
+          return pair[1];
+        }
+      }
+      return false;
     },
-    initNoticeBar(){
-      
-    },
-    init() {
-      // this.$store.commit(types.UPDATE_NETLOADING, false);
-      // setTimeout(() => {
-      //   document.getElementById("loading").style.animation = "narrow 0.5s";
-      // }, 500);
-      // setTimeout(() => {
-      //   document.body.removeChild(document.getElementById("loading"));
-      //   this.isok = true;
-      // }, 500);
-    // }
-  }
-};
+  },
+  created() {
+    let patId = this.getQueryVariable("patId");
+    console.log(patId,"tasd");
+      if(patId){
+        this.$store.commit("SET_PAT_ID",patId);
+      }else{
+        console.log(123)
+      }
+    }
+}
 </script>
-<style lang="scss">
-.md-tab-bar {
-  background-color: #fff;
-}
-
-.hide {
-  visibility: hidden;
-}
-</style>
+<style lang="scss"></style>

@@ -1,68 +1,61 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from 'store'
-
-const Home = () => import('@/components/pages/home')
-const DiagnoseReport = () => import('@/components/pages/diagnosereport/DiagnoseReport')
-const CheckReport = () => import('@/components/pages/checkreport/CheckReport')
-
 
 Vue.use(Router)
-
-Router.prototype.goBack = function () {
-  this.isBack = true
-  window.history.go(-1)
-}
-
-
-let router = new Router({
-  routes: [{
+export const router = [
+  {
     path: '/',
-    name: 'home',
-    component: Home,
+    name: 'index',
+    component: () => import('@/views/home/index'), // 路由懒加载
     meta: {
+      title: '首页', // 页面标题
+      keepAlive: true // keep-alive 标识
+    }
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/views/home/about'),
+    meta: {
+      title: '关于我',
       keepAlive: true
     }
   },
   {
-    path: '/diagnosereport',
-    name: 'diagnosereport',
-    component: DiagnoseReport,
+    path: '/medicaldetail',
+    name: 'medicaldetail',
+    component: () => import('@/views/mob/MedicalDetail'),
     meta: {
+      title: '关于我',
       keepAlive: true
     }
   },
   {
-    path: '/checkreport',
-    name: 'checkreport',
-    component: CheckReport,
+    path: '/CheckReport',
+    name: 'CheckReport',
+    component: () => import('@/views/mob/CheckReport'),
     meta: {
+      title: '',
       keepAlive: true
     }
   },
-  ]
-})
+  {
+    path: '/yingxiang',
+    name: 'yingxiang',
+    component: () => import('@/views/mob/yingxiang'),
+    meta: {
+      title: '',
+      keepAlive: true
+    }
+  }
+]
 
+const createRouter = () =>
+  new Router({
+    // mode: 'history', // 如果你是 history模式 需要配置vue.config.js publicPath
+    // base: '/app/',
+    scrollBehavior: () => ({y: 0}),
+    routes: router
+  })
 
-
-
-router.beforeEach((to, from, next) => {
-  // if (to.meta && Object.keys(to.meta).length > 0 && to.meta.requireAuth) { // 判断该路由是否需要登录权限
-  //   if (store.getters.api_token != '') { // 通过vuex state获取当前的token是否存在
-  //     next();
-  //   } else {
-  //     next({
-  //       path: '/wxRegister',
-  //       query: {
-  //         isShoweBing: true,
-  //         redirect: to.fullPath
-  //       } // 将跳转的路由path作为参数，登录成功后跳转到该路由
-  //     })
-  //   }
-  // } else {
-    next();
-  // }
-})
-
-
-export default router
+export default createRouter()

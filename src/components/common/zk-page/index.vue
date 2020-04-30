@@ -12,9 +12,9 @@
       <slot name="footer"></slot>
     </footer>
 
-    <div v-if="netloading && isShowLoad" class="loading">
-      <md-activity-indicator style="z-index: 90000;" type="carousel" :size="15"></md-activity-indicator>
-    </div>
+<!--    <div v-if="netloading && isShowLoad" class="loading">-->
+<!--      <md-activity-indicator style="z-index: 90000;" type="carousel" :size="15"></md-activity-indicator>-->
+<!--    </div>-->
   </div>
 </template>
 

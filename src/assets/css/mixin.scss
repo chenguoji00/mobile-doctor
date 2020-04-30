@@ -1,117 +1,36 @@
+// mixin
+// 清除浮动
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+ 
+// 多行隐藏
+@mixin textoverflow($clamp:1) {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $clamp;
+  /*! autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
 
-$debc: #e4e4e4;
-$title: 16px;
-$subtitle: 13px;
-$smsub: 12px;
-$margin: 10px;
-$red: #f23030;
-$gray: #81838e;
-$border: #e1e1e1;
-$padding: 10px;
-$fontfamily: 'Microsoft Yahei';
 //flex box
 @mixin flexbox($jc:space-between, $ai:center, $fd:row, $fw:nowrap) {
   display: flex;
+  display: -webkit-flex;
   flex: 1;
   justify-content: $jc;
+  -webkit-justify-content: $jc;
   align-items: $ai;
+  -webkit-align-items: $ai;
   flex-direction: $fd;
+  -webkit-flex-direction: $fd;
   flex-wrap: $fw;
-}
-
-// width height
-@mixin wh($w:100%, $h:100%) {
-  width: $w;
-  height: $h;
-}
-
-@mixin radius($radius:50%) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  -o-border-radius: $radius;
-  border-radius: $radius;
-  border: 1px solid #eee;
-}
-
-// 背景图片地址和大小
-@mixin bg($url) {
-  background-image: url($url);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
-// clamp
-@mixin textoverflow($clamp:1) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: $clamp;
-  overflow: hidden;
-}
-
-//渐变
-@mixin gradient($rc, $lc) {
-  background-image: -webkit-gradient(linear, left bottom, left top, from($rc), to($lc));
-  background-image: -webkit-linear-gradient(bottom, $rc, $lc);
-  background-image: -o-linear-gradient(bottom, $rc, $lc);
-  background-image: linear-gradient(0deg, $rc, $lc);
-  background-image: -webkit-linear-gradient(0deg, $rc, $lc);
-}
-
-@mixin placeholderColor($color) {
-   ::-webkit-input-placeholder {
-    /* WebKit browsers */
-    color: $color;
-  }
-   :-moz-placeholder {
-    /* Mozilla Firefox 4 to 18 */
-    color: $color;
-  }
-   ::-moz-placeholder {
-    /* Mozilla Firefox 19+ */
-    color: $color;
-  }
-   :-ms-input-placeholder {
-    /* Internet Explorer 10+ */
-    color: #999;
-  }
-}
-
-
-@mixin px2rem($property,$px-values,$baseline-px:75px,$support-for-ie:false){
-  //Conver the baseline into rems
-  $baseline-rem: $baseline-px / 1rem * 1;
-  //打印出第一行的像素值
-  @if $support-for-ie {
-    #{$property}: $px-values;
-  }
-  //if there is only one (numeric) value, return the property/value line for it.
-  @if type-of($px-values) == "number"{
-    #{$property}: $px-values / $baseline-rem;
-  }
-  @else {
-    //Create an empty list that we can dump values into
-    $rem-values:();
-    @each $value in $px-values{
-      // If the value is zero or not a number, return it
-      @if $value == 0 or type-of($value) != "number"{
-        $rem-values: append($rem-values, $value / $baseline-rem);
-      }
-    }
-    // Return the property and its list of converted values
-    #{$property}: $rem-values;
-  }
-}
-
-
-@mixin font-dpr($font-size){
-  font-size: $font-size;
-
-  [data-dpr="2"] & {
-      font-size: $font-size * 2;
-  }
-
-  [data-dpr="3"] & {
-      font-size: $font-size * 3;
-  }
+  -webkit-flex-wrap: $fw;
 }
