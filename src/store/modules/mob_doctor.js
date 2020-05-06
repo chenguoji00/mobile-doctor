@@ -3,6 +3,7 @@ const state = {
   patient: {}
 }
 const mutations = {
+  
   // SET_USER_NAME(state, name) {
   //   state.userName = name
   // },

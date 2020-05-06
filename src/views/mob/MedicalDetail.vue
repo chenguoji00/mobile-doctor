@@ -10,7 +10,8 @@
                 left-arrow />
       </template>
       <template slot="container">
-        <img :src="imagePath" style="width: 100%;height:100%;"/>
+        <img  src="../../assets/patientone.png" style="width: 100%;height:100%;"/>
+        <img  src="../../assets/patienttwo.png" style="width: 100%;height:100%;"/>
       </template>
     </ZKPage>
   </div>
